@@ -1,0 +1,40 @@
+.group:before,
+.group:after {
+  content: "";
+  display: table;
+}
+.group:after {
+  clear: both;
+}
+.group {
+  clear: both;
+  *zoom: 1;
+}
+
+body {
+	background-color: #66ffff;
+}
+
+h1 {
+	font: 30px/32px "Quicksand", sans-serif;
+	text-align: center;
+	border: 2px dotted white;
+}
+
+.tweets {
+	position: relative;
+	float: right;
+	width: 70%;
+	background-color: #003399;
+	padding:10px;
+	overflow-y: scroll;
+	height: 450px;
+}
+
+.tweet {
+	font: 16px/18px "Quicksand", sans-serif;
+}
+
+.time {
+	font-size: 14px;
+}
