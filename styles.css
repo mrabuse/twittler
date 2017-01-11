@@ -33,6 +33,8 @@ h1 {
 
 .tweet {
 	font: 16px/18px "Quicksand", sans-serif;
+	color: white;
+	list-style-type: none;
 }
 
 .time {

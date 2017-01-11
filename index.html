@@ -13,7 +13,7 @@
     <div class="sidebar group">
       <button>Fresh Tweets</button>
     </div>
-    <div class="tweets group"></div>
+    <div> <ol class="tweets group"> </ol></div>
     <footer></footer>
     <script>
       $(document).ready(function(){
@@ -24,18 +24,39 @@
           var index = streams.home.length - 1;
           while(index >= 0){
             var tweet = streams.home[index];
-            var $tweet = $('<section class="tweet"></section>');
+            var $tweet = $('<li class="tweet"></li>');
             var $tweetTime = $('<p class="time"></p>');
             var time = +$.now();
-            $tweet.text('@' + tweet.user + ': ' + tweet.message);
+            var $tweetHandle = $('<span></span>');
+            $tweet.text(tweet.message);
+            $tweetHandle.text('@' + tweet.user + ': ');
             $tweetTime.text((new Date));
+            $tweetHandle.prependTo($tweet);
             $tweetTime.appendTo($tweet);
             $tweet.appendTo($tweets);
+            $tweet.addClass(tweet.user);
             index -= 1;
          }
         };
         getTweets();
         $(document).on('click', 'button', getTweets);
+
+        function filterHandle() {
+          if($(this).parent().hasClass('shawndrost')) {
+            handle = 'shawndrost';
+          } else if ($(this).parent().hasClass('sharksforcheap')) {
+            handle = 'sharksforcheap';
+          } else if($(this).parent().hasClass('mracus')){
+            handle = 'mracus';
+          } else if ($(this).parent().hasClass('douglascalhoun')) {
+            handle = 'douglascalhoun';
+          }
+
+          $('.tweet').toggle();
+          $("." + handle).show();
+        }
+
+        $('.tweets').on('click', 'span', filterHandle);
       });
 
     </script>
