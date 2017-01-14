@@ -15,16 +15,25 @@ body {
 	background-color: #66ffff;
 }
 
-h1 {
-	font: 30px/32px "Quicksand", sans-serif;
+header {
 	text-align: center;
+}
+
+h1 {
+	display: inline-block;
+	font: 45px/ 50px "Quicksand", sans-serif;
+	font-weight: 700;
+	color: #1d2860;
+	text-transform: uppercase;
+	text-align: center;
+	padding: 5px;
 	border: 2px dotted white;
 }
 
 .tweets {
 	position: relative;
 	float: right;
-	width: 70%;
+	width: 65%;
 	background-color: #003399;
 	border-radius: 10px;
 	padding:10px;
@@ -44,20 +53,35 @@ h1 {
 }
 
 span {
-	color: purple;
+	color: #fff864;
 }
 
 span:hover {
-	color: pink;
+	color: #ffc100;
+}
+
+.column {
+	position: relative;
+	text-align: center;
 }
 button {
 	position: absolute;
-	font: 16px/18px "Quicksand", sans-serif;
-	background-color: white;
-	border-radius: 25px;
 	text-align: center;
-	height: 50px;
-	width: 100px;
+	left: 7%;
+	top: 25%;
+	font: 28px/30px "Quicksand", sans-serif;
+	background-color: white;
+	color: #1d2860;
+	border: none;
+	border-radius: 40px;
+	text-align: center;
+	height:80px;
+	width: 160px;
+}
+
+button:hover {
+	background-color: #1d2860;
+	color: white;
 }
 
 footer {
