@@ -21,24 +21,27 @@
         var $body = $('body');
         var $tweets = $('.tweets');
         $('button#timeline').hide();
+
+        var lastTweetIndex = 0;
         function getTweets () {
           var index = streams.home.length - 1;
-          while(index >= 0){
+          while(index >= lastTweetIndex){
             var tweet = streams.home[index];
             var $tweet = $('<li class="tweet"></li>');
             var $tweetTime = $('<p class="time"></p>');
-            var time = +$.now();
             var $tweetHandle = $('<span></span>');
+
             $tweet.text(tweet.message);
             $tweetHandle.text('@' + tweet.user + ': ');
-            $tweetTime.text((new Date));
+            $tweetTime.text(tweet.created_at);
             $tweetHandle.prependTo($tweet);
             $tweetTime.appendTo($tweet);
-            $tweet.appendTo($tweets);
+            $tweet.prependTo($tweets);
             $tweet.addClass(tweet.user);
             index -= 1;
-
          }
+
+         lastTweetIndex = streams.home.length;
         };
         getTweets();
         $(document).on('click', 'button#freshTweets', getTweets);
